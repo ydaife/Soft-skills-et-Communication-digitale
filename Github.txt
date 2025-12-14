@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soft Skills & Communication Digitale – ENCG Fès</title>
+  <meta name="description" content="Cours de Master – Professeur Younes DAIFE">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e67e22;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --success: #28a745;
+    }
+
+    [data-theme="dark"] {
+      --primary: #f8f9fa;
+      --secondary: #4da6ff;
+      --light: #212529;
+      --dark: #f8f9fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 3rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .card-header {
+      background: var(--secondary);
+      color: white;
+      padding: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-body ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .card-body li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+    }
+
+    .btn-canva {
+      background: #00c4cc;
+    }
+
+    .btn-discord {
+      background: #7289da;
+    }
+
+    .btn-google {
+      background: #DB4437;
+    }
+
+    .resources {
+      background: #f0f4f8;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .resource-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .resource-item h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .footer-links a {
+      color: #a0c4e5;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section {
+        padding: 2rem 0;
+      }
+    }
+
+    /* Formulaire de contact */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    /* Responsivité pour les boutons */
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .legal-notice {
+      background: #e9ecef;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Soft Skills & Communication Digitale</div>
+        <ul class="nav-links">
+          <li><a href="#program">Programme</a></li>
+          <li><a href="#ressources">Ressources</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Soft Skills & Communication Digitale</h1>
+      <p>Cours de Master – École Nationale de Commerce et de Gestion de Fès<br>Professeur : Younes DAIFE</p>
+    </div>
+  </section>
+
+  <section id="program" class="section">
+    <div class="container">
+      <h2 class="section-title">Programme du Cours</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-header">Séance 1</div>
+          <div class="card-body">
+            <p><strong>Fondements de la Communication Digitale</strong></p>
+            <ul>
+              <li>Définition et portée</li>
+              <li>Évolution historique (Web 1.0 à Web 3.0)</li>
+              <li>Loi 09-08 et éthique marocaine</li>
+            </ul>
+            <a href="#" class="btn">Voir les détails</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">Séance 2</div>
+          <div class="card-body">
+            <p><strong>Acquisition & Engagement</strong></p>
+            <ul>
+              <li>Stratégies de contenu</li>
+              <li>Réseaux sociaux professionnels</li>
+              <li>Marketing d'influence éthique</li>
+            </ul>
+            <a href="#" class="btn">Voir les détails</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">Séance 3</div>
+          <div class="card-body">
+            <p><strong>Données & Performance</strong></p>
+            <ul>
+              <li>Google Analytics 4</li>
+              <li>Mesure du ROI digital</li>
+              <li>Optimisation des campagnes</li>
+            </ul>
+            <a href="#" class="btn">Voir les détails</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ressources" class="section resources">
+    <div class="container">
+      <h2 class="section-title">Ressources Pédagogiques</h2>
+      <div class="resource-grid">
+        <div class="resource-item">
+          <h3>📚 Documents Officiels</h3>
+          <ul>
+            <li><a href="ressources/loi-09-08.pdf" target="_blank">Loi 09-08 sur la protection des données</a></li>
+            <li><a href="ressources/programme-cours.pdf" target="_blank">Programme détaillé du cours</a></li>
+            <li><a href="ressources/barème-projets.pdf" target="_blank">Barème d'évaluation des projets</a></li>
+          </ul>
+        </div>
+        
+        <div class="resource-item">
+          <h3>🎓 Études de Cas Marocaines</h3>
+          <ul>
+            <li>Campagne PME Digitale (CGEM)</li>
+            <li>Stratégie digitale de Marjane+</li>
+            <li>Transformation digitale bancaire</li>
+          </ul>
+        </div>
+        
+        <div class="resource-item">
+          <h3>📊 Outils Pratiques</h3>
+          <ul>
+            <li>Modèles de CV vidéo</li>
+            <li>Templates de pitch TED</li>
+            <li>Checklist éthique digitale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" class="section">
+    <div class="container">
+      <h2 class="section-title">Projets Pratiques</h2>
+      
+      <div class="cards">
+        <div class="card">
+          <div class="card-header">CV Vidéo (60 secondes)</div>
+          <div class="card-body">
+            <p>Créez un CV vidéo percutant qui met en valeur vos soft skills et compétences digitales.</p>
+            <div class="btn-container">
+              <a href="https://www.canva.com/templates/EAFhXmYg8qo-blue-modern-professional-resume-video/" target="_blank" class="btn btn-canva">
+                🎨 Modèle Canva Téléchargeable
+              </a>
+              <a href="ressources/conseils-cv-video.pdf" target="_blank" class="btn">
+                📝 Conseils Techniques
+              </a>
+            </div>
+            <div class="legal-notice">
+              <strong>Conseil :</strong> Téléchargez le modèle Canva, remplissez votre nom et enregistrez-le comme votre certificat personnalisé.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">Pitch TED (5 minutes)</div>
+          <div class="card-body">
+            <p>Développez un pitch structuré sur un sujet lié à la communication digitale responsable.</p>
+            <div class="btn-container">
+              <a href="https://forms.gle/votre-formulaire-qcm" target="_blank" class="btn btn-google">
+                📝 QCM d'Auto-Évaluation
+              </a>
+              <a href="ressources/grille-evaluation-pitch.pdf" target="_blank" class="btn">
+                📊 Grille d'Évaluation
+              </a>
+            </div>
+            <div class="legal-notice">
+              <strong>Note :</strong> Les réponses à ce QCM sont sauvegardées automatiquement dans un Google Sheet pour suivi pédagogique.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">Espace Collaboratif</div>
+          <div class="card-body">
+            <p>Échangez avec vos camarades, posez des questions et partagez des ressources.</p>
+            <div class="btn-container">
+              <a href="https://discord.gg/votre-lien-discord" target="_blank" class="btn btn-discord">
+                💬 Rejoindre le Serveur Discord
+              </a>
+            </div>
+            <div class="legal-notice">
+              <strong>Important :</strong> Connectez-vous avec votre compte Discord personnel. Aucune donnée n'est stockée par ce site.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Me Contacter</h2>
+      
+      <div style="text-align: center; margin: 2rem 0;">
+        <p>Pour toute question sur le cours, utilisez l'un des canaux ci-dessous :</p>
+      </div>
+      
+      <div class="btn-container" style="justify-content: center; margin: 2rem 0;">
+        <a href="https://wa.me/212612345678?text=Bonjour%20Professeur,%20j%27ai%20une%20question%20sur%20le%20cours%20de%20Soft%20Skills" class="btn btn-whatsapp">
+          💬 Me contacter sur WhatsApp
+        </a>
+      </div>
+      
+      <div class="card" style="max-width: 800px; margin: 2rem auto; background: white;">
+        <div class="card-body">
+          <h3 style="color: var(--primary); margin-bottom: 1rem;">Formulaire de Contact</h3>
+          <p style="margin-bottom: 1.5rem;">Utilisez ce formulaire pour les questions administratives ou les demandes formelles :</p>
+          
+          <form action="https://formspree.io/f/votre-id-formspree" method="POST">
+            <div class="form-group">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email professionnel</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Votre message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            
+            <div class="form-group">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent" style="display: inline; margin-left: 0.5rem;">
+                J'accepte que mes données soient utilisées uniquement pour répondre à ma requête, conformément à la Loi 09-08 marocaine.
+              </label>
+            </div>
+            
+            <button type="submit" class="btn">Envoyer le message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 | Cours de Master – École Nationale de Commerce et de Gestion de Fès</p>
+      <p>Professeur : Younes DAIFE | Ce site respecte la Loi 09-08 sur la protection des données</p>
+      <div class="footer-links">
+        <a href="confidentialite.html">Politique de Confidentialité</a>
+        <a href="mentions-legales.html">Mentions Légales</a>
+        <a href="ressources/loi-09-08.pdf" target="_blank">Loi 09-08 (Texte Officiel)</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton WhatsApp flottant -->
+  <a href="https://wa.me/212612345678?text=Bonjour%20Professeur,%20j%27ai%20une%20question%20sur%20le%20cours" class="whatsapp-btn" aria-label="Contacter sur WhatsApp">
+    💬
+  </a>
+
+  <!-- Script Tidio Chatbot (à configurer gratuitement sur tidio.com) -->
+  <script src="//code.tidio.co/xxxxxx.js" async></script>
+
+  <script>
+    // JavaScript minimal pour les interactions basiques
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling pour les liens d'ancrage
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Détection du mode sombre système
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      
+      // Notification de confidentialité au premier contact WhatsApp
+      document.querySelector('.whatsapp-btn').addEventListener('click', function() {
+        if (!localStorage.getItem('whatsappNoticeShown')) {
+          alert('En cliquant sur ce bouton, vous acceptez de partager votre numéro WhatsApp avec le professeur pour cette conversation unique. Aucune donnée n\'est stockée sur ce site.');
+          localStorage.setItem('whatsappNoticeShown', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
